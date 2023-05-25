@@ -1,19 +1,18 @@
-from enum import Enum
+from datetime import date
 
 from pydantic import BaseModel
 
 
-class VKUserKind(str, Enum):
-    USER = 'user'
-    GROUP = 'group'
-    APPLICATION = 'application'
-
-
 class BaseVKUser(BaseModel):
     id: int
-    domain: str
-    name: str
-    type: VKUserKind
+    domain: str | None
+    first_name: str
+    second_name: str
+    last_name: str
+    country: str
+    city: str
+    bdate: date
+    contacts: str
 
 
 class VKUser(BaseVKUser):
@@ -21,11 +20,3 @@ class VKUser(BaseVKUser):
 
     class Config:
         orm_mode = True
-
-
-class VKUserCreate(BaseVKUser):
-    pass
-
-
-class VKUserUpdate(BaseVKUser):
-    pass

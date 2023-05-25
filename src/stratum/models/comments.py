@@ -3,19 +3,17 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
-class BaseWall(BaseModel):
-    id: int
+class BaseComment(BaseModel):
     source_id: int
-    content: str | None
+    wall_id: int
+    content: str
     date: datetime
     likes: int
-    shared: int
-    views: int
-    comments: int
+    replies: int
 
 
-class Wall(BaseWall):
-    wall_id: int
+class Comment(BaseComment):
+    comment_id: int
 
     class Config:
         orm_mode = True
