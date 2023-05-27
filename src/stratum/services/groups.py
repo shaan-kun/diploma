@@ -10,7 +10,7 @@ from ..tables import *
 from ..database import get_session
 
 
-class VKUsersService:
+class GroupService:
     def __init__(self, session: Session = Depends(get_session)):
         self.session = session
 

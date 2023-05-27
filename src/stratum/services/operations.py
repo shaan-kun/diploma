@@ -10,10 +10,8 @@ from fastapi import (
 )
 from sqlalchemy.orm import Session
 
-from .. import (
-    models,
-    tables,
-)
+import stratum.models.operations as models
+import stratum.tables.auth as tables
 from ..database import get_session
 
 

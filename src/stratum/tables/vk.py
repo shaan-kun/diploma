@@ -47,7 +47,7 @@ class SourceType(Base):
     __tablename__ = 'sourcetypes'
 
     sourcetype_id = Column(Integer, primary_key=True)
-    name = contacts = Column(String)
+    name = Column(String)
 
 
 class Source(Base):
