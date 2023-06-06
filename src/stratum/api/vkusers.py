@@ -11,8 +11,8 @@ from ..services import VKUsersService
 
 
 router = APIRouter(
-    prefix='/users',
-    tags=['users'],
+    prefix='/vkusers',
+    tags=['vkusers'],
 )
 
 
@@ -31,6 +31,17 @@ def get_vkusers(
     vkusers_service: VKUsersService = Depends(),
 ):
     return vkusers_service.get_list()
+
+
+@router.get('/relation', response_model=list[BaseFollowing])
+def get_relation(
+    user_id_first: int,
+    user_id_second: int,
+    user: User = Depends(get_current_user),
+    vkusers_service: VKUsersService = Depends(),
+):
+    """Возвращает путь от первого пользователя ко второму по подпискам."""
+    return vkusers_service.get_relation(user_id_first, user_id_second)
 
 
 
