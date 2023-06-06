@@ -20,3 +20,7 @@ class VKUser(BaseVKUser):
 
     class Config:
         orm_mode = True
+
+
+class Relation:
+    id: int
